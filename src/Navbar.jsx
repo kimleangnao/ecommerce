@@ -1,10 +1,10 @@
 
 import logo from "../resources/images/logo.png"
 
-const Navbar  = () => {
+const Navbar  = ({color}) => {
     return(
         <div className="navbar">
-            <div className="navbar_rect">
+            <div className="navbar_rect" style={{color: `${color}`}}>
                 <div className="navbar_rect_text">
                     Trend
                 </div>
@@ -22,7 +22,7 @@ const Navbar  = () => {
                 <img src={logo} alt="not found" className="navbar_box_image" />
             </div>
             <div className="navbar_logo">
-                <div className="navbar_logo_circle">
+                <div className="navbar_logo_circle" style={{background: `${color}`}}>
 
                 </div>
             </div>
