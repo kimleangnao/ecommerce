@@ -1,7 +1,9 @@
 
 import logo from "../resources/images/logo.png"
 
-const Navbar  = ({color}) => {
+const Navbar  = ({showCart, color}) => {
+    let showTheCart = showCart ? true : false;
+
     return(
         <div className="navbar">
             <div className="navbar_rect" style={{color: `${color}`}}>
@@ -22,6 +24,13 @@ const Navbar  = ({color}) => {
                 <img src={logo} alt="not found" className="navbar_box_image" />
             </div>
             <div className="navbar_logo">
+                {
+                    showTheCart ? 
+                        ( <div className="navbar_logo_circle" style={{background: `${color}`}}>
+
+                        </div>) 
+                    : ""
+                }
                 <div className="navbar_logo_circle" style={{background: `${color}`}}>
 
                 </div>
