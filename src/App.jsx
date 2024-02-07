@@ -5,6 +5,7 @@ import Home from "./Home";
 import Search from "./Search";
 import ViewProduct from "./ViewProduct";
 import Checkout from "./Checkout";
+import Cart from "./Cart";
 
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
         <BrowserRouter>
       
             <Routes>
+                <Route path="/cart" element={<Cart />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/search/:id" element={<ViewProduct />} />
                 <Route path="/search" element={<Search />} />
