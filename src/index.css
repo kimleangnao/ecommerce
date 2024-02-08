@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Limelight&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arbutus&display=swap');
+
+
 :root{
     --main-font:  'Roboto', sans-serif;
     --style-homepage: 'Limelight', sans-serif;
+    --style-font-fancy: 'Arbutus', serif;
 }
 
 *{
@@ -28,6 +32,10 @@
 }
 .navbar_rect:hover{
     cursor: pointer;
+}
+.navbar_rect_text{
+    color: white;
+    text-decoration: none;
 }
 .navbar_rect_text:hover{
     text-decoration: underline;
@@ -936,7 +944,6 @@
 .cart{
     width: 100%;
     min-height: 100%;
-
 }
 .cart_wrapper{
     width: 100%;
@@ -1050,4 +1057,106 @@
 .cart_wrapper_price_btnCheckout:hover{
     cursor: pointer;
 }
+
+
+/*athlete*/
+.athlete{
+    width: 100%;
+    min-height: 100%;
+
+}
+.athlete_wrapper{
+    width: 100%;
+    min-height: 855px;
+    overflow: hidden;
+    display: flex;  
+}
+.athlete_wrapper_athletes{
+    width: 65%;
+    min-height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    color: white;
+}
+.athlete_wrapper_athletes_absolute{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    z-index: 5;
+    overflow: hidden;
+}
+.athlete_wrapper_athletes_absolute_image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+}
+.athlete_wrapper_athletes_absolute_cover{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.74);
+    z-index: 3;
+}
+.athlete_wrapper_athletes_sidebar{
+    width: 100px;
+    padding-top: 70px;
+    margin-left: 50px;
+    z-index: 10;
+}
+.athlete_wrapper_athletes_sidebar_face{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: white;
+    margin-top: 50px;
+}
+.athlete_wrapper_athletes_display{
+    width: 900px;
+    margin-left: 50px;
+    z-index: 10;
+}
+.athlete_wrapper_athletes_display_title{
+    text-align: center;
+    font-size: 45px;
+    padding: 25px 0;
+    font-family: var(--style-font-fancy);
+}
+.athlete_wrapper_athletes_display_video{
+    width: 100%;
+    height: 380px;
+    border: 1px solid white;
+}
+.athlete_wrapper_athletes_display_more{
+    width: 100%;
+    height: 150px;
+    margin-top: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.athlete_wrapper_athletes_display_more_video{
+    width: 250px;
+    height: 100%;
+    border: 1px solid blue;
+}
+.athlete_wrapper_athletes_display_bottomText{
+    text-align: center;
+    font-size: 55px;
+    padding: 50px 0;
+    font-family: var(--style-font-fancy);
+}
+
+.athlete_wrapper_shoes{
+    width: 35%;
+    min-height: 100%;
+    background-color: #F9F9F9;
+}
+
+
+
 

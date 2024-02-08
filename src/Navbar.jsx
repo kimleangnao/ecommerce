@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import logo from "../resources/images/logo.png"
 
 const Navbar  = ({showCart, color}) => {
@@ -6,23 +7,23 @@ const Navbar  = ({showCart, color}) => {
 
     return(
         <div className="navbar">
-            <div className="navbar_rect" style={{color: `${color}`}}>
-                <div className="navbar_rect_text">
-                    Trend
-                </div>
-                <div className="navbar_rect_text">
-                    Atheltic
-                </div>
-                <div className="navbar_rect_text">
+            <div className="navbar_rect" >
+                <Link to="/search" className="navbar_rect_text" style={{color: `${color}`}}>
+                    Search
+                </Link>
+                <Link to="/athlete" className="navbar_rect_text" style={{color: `${color}`}}>
+                    Athletes
+                </Link>
+                <Link to="/search" className="navbar_rect_text" style={{color: `${color}`}}>
                     Men
-                </div>
-                <div className="navbar_rect_text">
+                </Link>
+                <Link to="/search" className="navbar_rect_text" style={{color: `${color}`}}>
                     Women
-                </div>
+                </Link>
             </div>
-            <div className="navbar_box">
+            <Link to="/" className="navbar_box">
                 <img src={logo} alt="not found" className="navbar_box_image" />
-            </div>
+            </Link>
             <div className="navbar_logo">
                 {
                     showTheCart ? 
