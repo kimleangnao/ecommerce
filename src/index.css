@@ -265,10 +265,12 @@
 }
 
 .viewproduct_display_images_mini_image{
+    display: block;
     width: 80px;
     height: 80px;
     background-color: rgb(199, 197, 197);
     margin-bottom: 10px;
+    border: unset;
 }
 .viewproduct_display_images_mini_image:hover{
     cursor: pointer;
@@ -399,6 +401,8 @@
 .viewproduct_display_info_wrapper_rating{
     margin-top: 5px;
     color: #D2B25F;
+    background-color: transparent;
+    border: unset;
     
     span{
         font-size: 12px;
@@ -1043,6 +1047,7 @@
     justify-content: flex-end;
 }
 .cart_wrapper_price_btnCheckout{
+    display: block;
     width: 85%;
     height: 70px;
     margin: 250px auto 0;
@@ -1053,6 +1058,7 @@
     font-size: 25px;
     color: white;
     font-weight: 500;
+    text-decoration: none;
 }
 .cart_wrapper_price_btnCheckout:hover{
     cursor: pointer;

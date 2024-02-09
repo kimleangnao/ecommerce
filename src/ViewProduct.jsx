@@ -3,41 +3,61 @@ import Navbar from "./Navbar";
 import moreButton from "../resources/images/more-button.png";
 import DisplayProductDetails from "./components/DisplayProductDetails";
 import ProductReviews from "./components/ProductReviews";
+import { useState } from "react";
 
 
 
 const ViewProduct = () => {
+    const [viewRating, setviewRating] = useState(false)
+
+    const switchView = (e, state) => {
+        e.preventDefault();
+
+     
+        if(viewRating){
+            console.log("1")
+            setviewRating(false);
+        }else{
+            console.log("2")
+            setviewRating(true);
+        }
+        
+        
+    }
+
+    const switchToProduct = (e) => {
+        e.preventDefault();
+        setviewRating(false);
+    }
     return(
         <div className="viewproduct">
             <Navbar color="black" />
             <div className="viewproduct_display">
                 <div className="viewproduct_display_images">
                     <div className="viewproduct_display_images_mini">
-                        <div className="viewproduct_display_images_mini_image">
+                        <button onClick={(e) => switchToProduct(e)} className="viewproduct_display_images_mini_image">
 
-                        </div>
-                        <div className="viewproduct_display_images_mini_image">
+                        </button>
+                        <button onClick={(e) => switchToProduct(e)} className="viewproduct_display_images_mini_image">
 
-                        </div>
-                        <div className="viewproduct_display_images_mini_image">
+                        </button>
+                        <button onClick={(e) => switchToProduct(e)} className="viewproduct_display_images_mini_image">
 
-                        </div>
-                        <div className="viewproduct_display_images_mini_image">
+                        </button>
+                        <button onClick={(e) => switchToProduct(e)} className="viewproduct_display_images_mini_image">
 
-                        </div>
-                        <div className="viewproduct_display_images_mini_image">
+                        </button>
+                        <button onClick={(e) => switchToProduct(e)} className="viewproduct_display_images_mini_image">
 
-                        </div>
-                        <div className="viewproduct_display_images_mini_image">
+                        </button>
+                        <button onClick={(e) => switchToProduct(e)} className="viewproduct_display_images_mini_image">
 
-                        </div>
+                        </button>
                     </div>
-                    {/*
-
-                    <DisplayProductDetails />
-
-                    */}
-                    <ProductReviews />
+                    {
+                        viewRating ?     <ProductReviews /> :       <DisplayProductDetails />
+                    }
+                
                
                     
 
@@ -51,14 +71,14 @@ const ViewProduct = () => {
                         <div className="viewproduct_display_info_wrapper_type">
                             Basketball Shoe
                         </div>
-                        <div className="viewproduct_display_info_wrapper_rating">
+                        <button onClick={(e) => switchView(e)} className="viewproduct_display_info_wrapper_rating">
                             <i className="fa-solid fa-star"></i>
                             <i className="fa-solid fa-star"></i>
                             <i className="fa-solid fa-star"></i>
                             <i className="fa-solid fa-star"></i>
                             <i className="fa-solid fa-star-half-stroke"></i>
                             <span>4.5 stars 120 rated</span>
-                        </div>
+                        </button>
                         <div className="viewproduct_display_info_wrapper_price">
                             160$
                         </div>

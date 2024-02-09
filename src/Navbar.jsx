@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import logo from "../resources/images/logo.png"
 
-const Navbar  = ({showCart, color}) => {
+const Navbar  = ({showCart=true, color}) => {
     let showTheCart = showCart ? true : false;
 
     return(
@@ -27,9 +27,9 @@ const Navbar  = ({showCart, color}) => {
             <div className="navbar_logo">
                 {
                     showTheCart ? 
-                        ( <div className="navbar_logo_circle" style={{background: `${color}`}}>
+                        ( <Link to="/cart" className="navbar_logo_circle" style={{background: `${color}`}}>
 
-                        </div>) 
+                        </Link>) 
                     : ""
                 }
                 <div className="navbar_logo_circle" style={{background: `${color}`}}>

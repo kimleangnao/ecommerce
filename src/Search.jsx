@@ -10,6 +10,18 @@ const Search = () => {
 
     const [filter, setfilter] = useState([])
     const [fitlerList, setfilterList] = useState({
+        gender: [
+            {
+                id: "g_0001",
+                text: "Female",
+                checked: false
+            },
+            {
+                id: "g_0002",
+                text: "Male",
+                checked: false
+            }
+        ],
         sports: [
             {
                 id: "s_0001",
@@ -158,6 +170,19 @@ const Search = () => {
                 <div className="search_body_filter">
                     <div className="search_body_filter_title">
                         Filter list
+                    </div>
+                    <div className="search_body_filter_category">
+                        <div className="search_body_filter_category_header">
+                            Gender
+                        </div>
+                        {
+                            fitlerList.gender.map((v, i) => (
+                                <div key={i} className="search_body_filter_category_sport">
+                                    <input onChange={() => onChangeSports(v.id)} type="checkbox" id={v.text} name={v.text}  />
+                                    <label onChange={() => onChangeSports(v.id)} htmlFor={v.text}>{v.text}</label>
+                                </div>
+                            ))
+                        }           
                     </div>
                     <div className="search_body_filter_category">
                         <div className="search_body_filter_category_header">

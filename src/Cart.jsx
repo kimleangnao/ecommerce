@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
 
@@ -38,9 +39,9 @@ const Cart = () => {
                             160.99$
                         </div>
                     </div>
-                    <div className="cart_wrapper_price_btnCheckout">
+                    <Link to="/checkout" className="cart_wrapper_price_btnCheckout">
                             Checkout
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>
