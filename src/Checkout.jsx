@@ -1,11 +1,45 @@
-import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
+import ItemInCart from "./components/ItemInCart";
+import PriceInCart from "./components/PriceInCart";
 
 
 
-const Checkout = () => {
+const Checkout = ({shoppingCart, setShoppingCart}) => {
+
+    const navigate = useNavigate();
+
+    const getPrice = () => {
+      
+
+        if(shoppingCart.length > 0){
+            let tax = 4.99;
+            let shipping = 5;
+            let sumPrice = shoppingCart.reduce((acc, cval) => acc + cval.productPrice, 0)
+            sumPrice = sumPrice + tax + shipping ;
+            return sumPrice;
+        }else{
+            return 0;
+        }
+    
+    }
+    
+    const onPurchase = () => {
+        //normally we would send this information to back end and they will do stuff with it
+        if(shoppingCart.length > 0){
+            alert("Order Placed!")
+            setShoppingCart([])
+            navigate("/search")
+        }else{
+            alert("No item, add some to cart.")
+            navigate("/search")
+        }
+    
+    }
+  
+
     return(
         <div className="checkout">
-            <Navbar showCart={true} color="black"  />
+       
 
             <div className="checkout_wrapper">
                 <div className="checkout_wrapper_info">
@@ -82,7 +116,7 @@ const Checkout = () => {
                         </div>
                         <div className="checkout_wrapper_info_payment_card">
                             <div className="checkout_wrapper_info_payment_card_title">
-                                Cardholder Name's Card
+                                John Oliver&apos;s Card
                             </div>
                             <div className="checkout_wrapper_info_payment_card_details">
                                 <div className="checkout_wrapper_info_payment_card_details_select">
@@ -91,7 +125,7 @@ const Checkout = () => {
                                 <div className="checkout_wrapper_info_payment_card_details_numbers">
                                     <div className="checkout_wrapper_info_payment_card_details_numbers_accountNumber">
                                         <div className="checkout_wrapper_info_payment_card_details_numbers_accountNumber_title">
-                                            Card #
+                                            Card #0000
                                         </div>
                                         <div className="checkout_wrapper_info_payment_card_details_numbers_accountNumber_box">
                                             ####-####-####-0000
@@ -153,18 +187,11 @@ const Checkout = () => {
                         <div className="checkout_wrapper_info_products_bundle_title">
                             PRODUCTS
                         </div>
-                        <div className="checkout_wrapper_info_products_bundle">
-                            <div className="checkout_wrapper_info_products_bundle_picture">
-
-                            </div>
-                            <div className="checkout_wrapper_info_products_bundle_details">
-                                <p className="checkout_wrapper_info_products_bundle_details_title">Under Armour Curry Flow 9 Team</p>
-                                <p className="checkout_wrapper_info_products_bundle_details_type">Basketball Shoe</p>
-                                <p className="checkout_wrapper_info_products_bundle_details_colors">Colors : Blue, White, Gold</p>
-                                <p className="checkout_wrapper_info_products_bundle_details_price">160 $</p>
-                                <p className="checkout_wrapper_info_products_bundle_details_amount">Amount: <span className="checkout_wrapper_info_products_bundle_details_amount_number">1</span></p>
-                            </div>
-                        </div>
+                        {
+                            shoppingCart.map((item, index) => (
+                                <ItemInCart key={index} item={item} />
+                            ))
+                        }
                     </div>
                 </div>
                 <div className="checkout_wrapper_details">
@@ -177,47 +204,55 @@ const Checkout = () => {
                                 Price
                             </div>
                         </div>
-                        <div className="checkout_wrapper_details_summary_product">
-                            <div className="checkout_wrapper_details_summary_product_text">
-                                Under Armour Curry Flow 9 Team 
+                        {
+                            shoppingCart.map((item, index) => (
+                                <PriceInCart key={index} item={item} />
+                            ))
+                        }
+                       
+                       {
+                        shoppingCart.length > 0 ? (
+                            <div className="checkout_wrapper_details_summary_additional">
+                                <div className="checkout_wrapper_details_summary_additional_text">
+                                    Shipping
+                                </div>
+                                <div className="checkout_wrapper_details_summary_additional_price">
+                                    $ 5.00
+                                </div>
                             </div>
-                            <div className="checkout_wrapper_details_summary_product_price">
-                                160 $
+                            ) : ""
+                       }
+                       {
+                        shoppingCart.length > 0 ? (
+                            <div className="checkout_wrapper_details_summary_additional">
+                                <div className="checkout_wrapper_details_summary_additional_text">
+                                    Tax
+                                </div>
+                                <div className="checkout_wrapper_details_summary_additional_price">
+                                    $ 4.99
+                                </div>
                             </div>
-                        </div>
-                        <div className="checkout_wrapper_details_summary_additional">
-                            <div className="checkout_wrapper_details_summary_additional_text">
-                                Shipping
-                            </div>
-                            <div className="checkout_wrapper_details_summary_additional_price">
-                               5.00 $ 
-                            </div>
-                        </div>
-                        <div className="checkout_wrapper_details_summary_additional">
-                            <div className="checkout_wrapper_details_summary_additional_text">
-                                Tax
-                            </div>
-                            <div className="checkout_wrapper_details_summary_additional_price">
-                                4.99 $ 
-                            </div>
-                        </div>
+                            ) : ""
+                       }
+                       
+                       
                         <div className="checkout_wrapper_details_summary_total">
                             <div className="checkout_wrapper_details_summary_total_text">
                                TOTAL
                             </div>
                             <div className="checkout_wrapper_details_summary_total_price">
-                                169.99 $
+                                $ {getPrice()}
                             </div>
                         </div>
 
-                        <div className="checkout_wrapper_details_summary_placeOrder">
+                        <button onClick={() => onPurchase()} className="checkout_wrapper_details_summary_placeOrder">
                             <div className="checkout_wrapper_details_summary_placeOrder_price">
-                                169.99 $
+                                $ {getPrice()}
                             </div>
                             <div className="checkout_wrapper_details_summary_placeOrder_text">
                                 Place Order
                             </div>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
