@@ -6,6 +6,7 @@ import Comment from "./components/Comment";
 const ViewSingleProductDetails = ({moreProducts, user, product, onChangeSelectColor, onChangeSelectGender, onChangeSelectSize, sortingComments, onChangeAddToCart}) => {
 
     const [activeOptionSort, setActiveOptionSort] = useState("TOP")
+    const [detailReviews, setDetailReviews] = useState("detail")
 
     const returnImageOfActiveProduct = () => {
         console.log()
@@ -103,44 +104,60 @@ const ViewSingleProductDetails = ({moreProducts, user, product, onChangeSelectCo
             <div className="viewSingleProduct_extraInfo">
                 <div className="viewSingleProduct_extraInfo_socialAndDetails">
                     <div className="viewSingleProduct_extraInfo_socialAndDetails_menu">
-                        <button className="viewSingleProduct_extraInfo_socialAndDetails_menu_btn">Details</button>
-                        <button className="viewSingleProduct_extraInfo_socialAndDetails_menu_btn viewSingleProduct_extraInfo_socialAndDetails_menu_btn-select">Reviews</button>
+                        <button onClick={() => setDetailReviews("detail")} className={`viewSingleProduct_extraInfo_socialAndDetails_menu_btn 
+                            ${detailReviews == "detail" ? "viewSingleProduct_extraInfo_socialAndDetails_menu_btn-select" : ""}`}>Details</button>
+
+                        <button onClick={() => setDetailReviews("review")} className={`viewSingleProduct_extraInfo_socialAndDetails_menu_btn 
+                            ${detailReviews == "review" ? "viewSingleProduct_extraInfo_socialAndDetails_menu_btn-select" : ""}`}>Reviews</button>
                     </div>
-                    <div className="viewSingleProduct_extraInfo_socialAndDetails_writeReview">
-                        <div className="viewSingleProduct_extraInfo_socialAndDetails_writeReview_user">
-                            <div className="viewSingleProduct_extraInfo_socialAndDetails_writeReview_user_profile">
-                                <img src={user.userImage} alt="profile_image" className="viewSingleProduct_extraInfo_socialAndDetails_writeReview_user_profile_imageFit" />
+                    {
+                        detailReviews == "review" ? (
+                            <div className="viewSingleProduct_extraInfo_socialAndDetails_wrapper">
+                                <div className="viewSingleProduct_extraInfo_socialAndDetails_writeReview">
+                                    <div className="viewSingleProduct_extraInfo_socialAndDetails_writeReview_user">
+                                        <div className="viewSingleProduct_extraInfo_socialAndDetails_writeReview_user_profile">
+                                            <img src={user.userImage} alt="profile_image" className="viewSingleProduct_extraInfo_socialAndDetails_writeReview_user_profile_imageFit" />
+                                        </div>
+                                        <textarea placeholder="Post your thought for the world to see..." className="viewSingleProduct_extraInfo_socialAndDetails_writeReview_user_input">
+        
+                                        </textarea>
+                                    </div>
+                                    <button className="viewSingleProduct_extraInfo_socialAndDetails_writeReview_submitBtn">POST</button>
+                                </div>
+        
+                                <div className="viewSingleProduct_extraInfo_socialAndDetails_sortWrap">
+                                    <div className="viewSingleProduct_extraInfo_socialAndDetails_sortWrap_sort">
+                                        <select onChange={(e) => onHandleOptionChange(e)} value={activeOptionSort} className="viewSingleProduct_extraInfo_socialAndDetails_sortWrap_sort_options">
+                                            <option value="TOP">TOP</option>
+                                            <option value="NEW">NEW</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="viewSingleProduct_extraInfo_socialAndDetails_comments">
+                                    {
+                                        product.productReviews.map((review, index) => (
+                                            <Comment key={index} review={review} />
+                                        ))
+                                    }
+                                </div>
+                                <div className="viewSingleProduct_extraInfo_socialAndDetails_more">
+                                    <button disabled >MORE</button>
+                                </div>
                             </div>
-                            <textarea placeholder="Post your thought for the world to see..." className="viewSingleProduct_extraInfo_socialAndDetails_writeReview_user_input">
+                        ) : (
+                            <div className="viewSingleProduct_extraInfo_socialAndDetails_wrapper">
+                                <h2 className="viewSingleProduct_extraInfo_socialAndDetails_productTitle">Product Details</h2>
+                                <p>Item model number: <span className="viewSingleProduct_extraInfo_socialAndDetails_span">{product.productModel}</span></p>
+                                <p>Department: <span className="viewSingleProduct_extraInfo_socialAndDetails_span">{product.productGender.map((gender) => (gender.gender))}</span> </p>
+                                <p>Proudct Type: <span className="viewSingleProduct_extraInfo_socialAndDetails_span">{product.productType}</span></p>
+                                <p>Brand: <span className="viewSingleProduct_extraInfo_socialAndDetails_span">{product.brand}</span> </p>
+                            </div>
+                        )
+                    }
 
-                            </textarea>
-                        </div>
-                        <button className="viewSingleProduct_extraInfo_socialAndDetails_writeReview_submitBtn">POST</button>
-                    </div>
-
-                    <div className="viewSingleProduct_extraInfo_socialAndDetails_sortWrap">
-                        <div className="viewSingleProduct_extraInfo_socialAndDetails_sortWrap_sort">
-                            <select onChange={(e) => onHandleOptionChange(e)} value={activeOptionSort} className="viewSingleProduct_extraInfo_socialAndDetails_sortWrap_sort_options">
-                                <option value="TOP">TOP</option>
-                                <option value="NEW">NEW</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div className="viewSingleProduct_extraInfo_socialAndDetails_comments">
-                        {
-                            product.productReviews.map((review, index) => (
-                                <Comment key={index} review={review} />
-                            ))
-                        }
+                  
                     
-              
-                    </div>
-                    <div className="viewSingleProduct_extraInfo_socialAndDetails_more">
-                        <button disabled >MORE</button>
-                    </div>
                 </div>
-
-
                 <div className="viewSingleProduct_extraInfo_ratingAndRecommend">
                     <div className="viewSingleProduct_extraInfo_ratingAndRecommend_rating">
                         <div className="viewSingleProduct_extraInfo_ratingAndRecommend_rating_rated">

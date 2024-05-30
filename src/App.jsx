@@ -22,6 +22,7 @@ const App = () => {
         {
             id: 621096,
             brand: "Nike",
+            productModel: 621096,
             productName: "Air Jordan 1 Low",
             productType: "Basketball Shoe",
             productPrice: 115,
@@ -278,6 +279,7 @@ const App = () => {
         {
             id: 992469,
             brand: "Nike",
+            productModel: 992469,
             productName: "Nike Blazer Mid '77",
             productType: "Basketball Shoe",
             productPrice: 85,
@@ -540,6 +542,7 @@ const App = () => {
         {
             id: 96427,
             brand: "Nike",
+            productModel: 96427,
             productName: "Jordan 4 Retro 'Industrial Blue'",
             productType: "Kid's Shoe",
             productPrice: 100,
@@ -769,6 +772,7 @@ const App = () => {
         {
             id: 797513,
             brand: "Adidas",
+            productModel: 797513,
             productName: "AE 1 Velocity Blue",
             productType: "Basketball Shoe",
             productPrice: 100,
@@ -1025,6 +1029,7 @@ const App = () => {
         {
             id: 720151,
             brand: "Adidas",
+            productModel: 720151,
             productName: "Dame Certified 2 ",
             productType: "Basketball Shoe",
             productPrice: 90,
@@ -1281,6 +1286,7 @@ const App = () => {
         {
             id: 241378,
             brand: "Adidas",
+            productModel: 241378,
             productName: "Forum Low CL Shoes",
             productType: "Basketball Shoe",
             productPrice: 100,
@@ -1538,6 +1544,7 @@ const App = () => {
         {
             id: 519412,
             brand: "UA",
+            productModel: 519412,
             productName: "Unisex Curry 3Z7",
             productType: "Basketball Shoe",
             productPrice: 85,
@@ -1789,6 +1796,7 @@ const App = () => {
         {
             id: 206761,
             brand: "UA",
+            productModel: 206761,
             productName: "Unisex UA Flow FUTR X 3",
             productType: "Basketball Shoe",
             productPrice: 125,
@@ -2029,6 +2037,7 @@ const App = () => {
         {
             id: 184012,
             brand: "UA",
+            productModel: 184012,
             productName: "Unisex Curry 2 Retro",
             productType: "Basketball Shoe",
             productPrice: 150,
@@ -2274,6 +2283,7 @@ const App = () => {
         {
             id: 41022,
             brand: "UA",
+            productModel: 41022,
             productName: "Men's Curry 1 ",
             productType: "Golf Shoe",
             productPrice: 150,
@@ -2508,6 +2518,7 @@ const App = () => {
         {
             id: 898329,
             brand: "Lacoste",
+            productModel: 898329,
             productName: "Men's Bayliss Leather Perforated Collar ",
             productType: "Sneakers",
             productPrice: 150,
@@ -2742,6 +2753,7 @@ const App = () => {
         {
             id: 218510,
             brand: "Lacoste",
+            productModel: 218510,
             productName: "Men's G-Elite Golf Shoes",
             productType: "Sneakers",
             productPrice: 80,
@@ -2976,6 +2988,7 @@ const App = () => {
         {
             id: 676700,
             brand: "Lacoste",
+            productModel: 676700,
             productName: "Men's Carnaby Pro BL Leather Tonal",
             productType: "Sneakers",
             productPrice: 100,
@@ -3210,6 +3223,7 @@ const App = () => {
         {
             id: 317280,
             brand: "Lacoste",
+            productModel: 317280,
             productName: "Men's Carnaby Pro BL Leather Tonal",
             productType: "Sneakers",
             productPrice: 100,
@@ -3444,6 +3458,7 @@ const App = () => {
         {
             id: 762664,
             brand: "New Republic",
+            productModel: 762664,
             productName: "Stanton Recycled Suede ",
             productType: "Sneakers",
             productPrice: 78,
@@ -3678,6 +3693,7 @@ const App = () => {
         {
             id: 442616,
             brand: "New Republic",
+            productModel: 442616,
             productName: "Grayson Sneaker",
             productType: "Sneakers",
             productPrice: 45,
@@ -4146,6 +4162,7 @@ const App = () => {
         {
             id: 163110,
             brand: "UA",
+            productModel: 163110,
             productName: "Curry Flow 9 '2974'",
             productType: "Basketball Shoe",
             productPrice: 145,
@@ -4380,6 +4397,7 @@ const App = () => {
         {
             id: 894518,
             brand: "Nike",
+            productModel: 894518,
             productName: "Nike Lebron 20",
             productType: "Basketball Shoe",
             productPrice: 160,
